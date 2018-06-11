@@ -2719,6 +2719,10 @@
 				color: #FFF;
 			}
 
+.spotlight.alt p {
+				color: #FFF;
+			}
+
 			.spotlight.alt .image {
 				-moz-order: 2;
 				-webkit-order: 2;
