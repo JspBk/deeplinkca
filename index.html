@@ -10,6 +10,31 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript">
+
+			$( document ).ready(function() {
+				function updateUrl() {
+					var layoutId = $("#layoutId").val();
+					var amount = $("#amount").val();
+					var recipient = $("#recipient").val();
+					var backgroundColor = $("#backgroundColor").val();
+
+					var data = "{\"layoutId\":\""+ layoutId +"\",\"amount\":"+ amount +",\"recipient\":\""+ recipient +"\",\"backgroundColor\":\""+ backgroundColor +"\"}}"
+					var url = "demoapp://app?data=";
+					console.log(data);
+					url += encodeURIComponent(data);
+					console.log(url);
+				}
+
+
+				updateUrl()
+				$("#transfer").change(function() {
+					updateUrl()
+				});
+				console.log( "ready!" );
+			});
+		</script>
 	</head>
 	<body>
 
@@ -29,8 +54,14 @@
 								<h3>Deep Link Transfer</h3>
 								<p>Ouverture de la page virement avec les paramètres pré-rempli.
                                 Destinataire : <b>Jean</b> - Montant : <b>20 €</b></p>
-                                
-                                 <a href="demoapp://app?data=%7B%22staticFactoryId%22%3A%22transfer_intent%22%2C%22data%22%3A%7B%22layoutId%22%3A%22fullScreen%22%2C%22amount%22%3A20.0%2C%22recipient%22%3A%22Jean%22%2C%22backgroundColor%22%3A%22%23ADDED5%22%7D%7D">Deep Link Transfer
+																<form id="transfer">
+																	<input type="text" id="layoutId" name="layoutId" value="fullScreen"/>
+																	<input type="text" id="recipient" name="recipient" value="Jean"/>
+																	<input type="text" id="amount" name="amount" value="20"/>
+																	<input type="text" id="backgroundColor" name="backgroundColor" value="#ADDED5"
+																</form>
+
+                                 <a id="linkUrl" href="demoapp://app?data=%7B%22staticFactoryId%22%3A%22transfer_intent%22%2C%22data%22%3A%7B%22layoutId%22%3A%22fullScreen%22%2C%22amount%22%3A20.0%2C%22recipient%22%3A%22Jean%22%2C%22backgroundColor%22%3A%22%23ADDED5%22%7D%7D">Deep Link Transfer
                             </a>
 							</div>
 						</div>
@@ -38,7 +69,7 @@
 							<div  class="inner">
 								<h3>Deep Link Second UseCase</h3>
 								<p>Ouverture de la page SecondUseCase.</p>
-                                 
+
 							</div>
 						</div>
 						<div class="spotlight">
