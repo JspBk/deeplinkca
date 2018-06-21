@@ -20,7 +20,7 @@
 					var recipient = $("#recipient").val();
 					var backgroundColor = $("#backgroundColor").val();
 
-					var data = "{\"layoutId\":\""+ layoutId +"\",\"amount\":"+ amount +",\"recipient\":\""+ recipient +"\",\"backgroundColor\":\""+ backgroundColor +"\"}}"
+					var data = "{\"staticFactoryId\":\"transfer_intent\", \"data\":{\"layoutId\":\""+ layoutId +"\",\"amount\":"+ amount +",\"recipient\":\""+ recipient +"\",\"backgroundColor\":\""+ backgroundColor +"\"}}"
 					var url = "demoapp://app?data=";
 					console.log(data);
 					url += encodeURIComponent(data);
