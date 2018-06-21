@@ -55,7 +55,12 @@
 								<p>Ouverture de la page virement avec les paramètres pré-rempli.
                                 Destinataire : <b>Jean</b> - Montant : <b>20 €</b></p>
 																<form id="transfer">
-																	<input type="text" id="layoutId" name="layoutId" value="fullScreen"/>
+																	<select id="layoutId" name="layoutId">
+																	  <option value="fullScreen">fullScreen</option>
+																	  <option value="popup" selected>popup</option>
+																	  <option value="standard">standard</option>
+																		<option value="navigation">navigation</option>
+																	</select>
 																	<input type="text" id="recipient" name="recipient" value="Jean"/>
 																	<input type="text" id="amount" name="amount" value="20"/>
 																	<input type="text" id="backgroundColor" name="backgroundColor" value="#ADDED5"
