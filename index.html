@@ -17,7 +17,9 @@
 				function updateUrl() {
 					var layoutId = $("#layoutId").val();
 					var amount = $("#amount").val();
+					$("#amountSpan").text(amount)
 					var recipient = $("#recipient").val();
+					$("#recipientSpan").text(recipient)
 					var backgroundColor = $("#backgroundColor").val();
 
 					var data = "{\"staticFactoryId\":\"transfer_intent\", \"data\":{\"layoutId\":\""+ layoutId +"\",\"amount\":"+ amount +",\"recipient\":\""+ recipient +"\",\"backgroundColor\":\""+ backgroundColor +"\"}}"
@@ -27,8 +29,6 @@
 					$("#linkUrl").prop("href", url)
 					console.log(url);
 				}
-
-
 				updateUrl()
 				$("#transfer").change(function() {
 					updateUrl()
@@ -53,22 +53,23 @@
 						<div class="spotlight">
 							<div class="inner">
 								<h3>Deep Link Transfer</h3>
-								<p>Ouverture de la page virement avec les paramètres pré-rempli.
-                                Destinataire : <b>Jean</b> - Montant : <b>20 €</b></p>
-																<form id="transfer">
-																	<select id="layoutId" name="layoutId">
-																	  <option value="fullScreen">fullScreen</option>
-																	  <option value="popup" selected>popup</option>
-																	  <option value="standard">standard</option>
-																		<option value="navigation">navigation</option>
-																	</select>
-																	<input type="text" id="recipient" name="recipient" value="Jean"/>
-																	<input type="text" id="amount" name="amount" value="20"/>
-																	<input type="text" id="backgroundColor" name="backgroundColor" value="#ADDED5"
-																</form>
+								<p>Ouverture de la page virement avec les paramètres pré-rempli.</p>
+                <p>Destinataire : <b><span id="recipientSpan">Jean</span></b> - Montant : <b><span id="amountSpan">20</span> €</b></p>
+										<form id="transfer">
+											<div class="select-wrapper">
+												<select id="layoutId" name="layoutId">
+												  <option value="fullScreen">fullScreen</option>
+												  <option value="popup" selected>popup</option>
+												  <option value="standard">standard</option>
+													<option value="navigation">navigation</option>
+												</select>
+											</div>
+											<input type="text" id="recipient" name="recipient" value="Jean"/>
+											<input type="text" id="amount" name="amount" value="20"/>
+											<input type="text" id="backgroundColor" name="backgroundColor" value="#ADDED5"/>
+										</form>
 
-                                 <a id="linkUrl" href="">Deep Link Transfer
-                            </a>
+                     <a id="linkUrl" href="" class="button special small fit">Deep Link Transfer</a>
 							</div>
 						</div>
 						<div class="spotlight alt">
@@ -82,11 +83,11 @@
 							<div class="inner">
 								<h3>Deep Link WebView UseCase</h3>
 								<p>Ouverture de la page WebView avec l'url <b>www.ca-languedoc.fr</b></p>
-                                  <a href="demoapp://app?data=%7B%22staticFactoryId%22%3A%22webview_intent%22%2C%22data%22%3A%7B%22layoutId%22%3A%22MenuAndHeaderLayout%22%2C%22url%22%3A%22https%3A%2F%2Fwww.ca-languedoc.fr%2F%22%7D%7D">Deep Link WebView MenuAndHeaderLayout
+                                  <a class="button special small fit" href="demoapp://app?data=%7B%22staticFactoryId%22%3A%22webview_intent%22%2C%22data%22%3A%7B%22layoutId%22%3A%22MenuAndHeaderLayout%22%2C%22url%22%3A%22https%3A%2F%2Fwww.ca-languedoc.fr%2F%22%7D%7D">Deep Link WebView MenuAndHeaderLayout
                             </a>
                                 </br>
                                 </br>
-                         <a href="demoapp://app?data=%7B%22staticFactoryId%22%3A%22webview_intent%22%2C%22data%22%3A%7B%22layoutId%22%3A%22DefaultLayout%22%2C%22url%22%3A%22https%3A%2F%2Fwww.ca-languedoc.fr%2F%22%7D%7D">Deep Link WebView DefaultLayout
+                         <a class="button special small fit" href="demoapp://app?data=%7B%22staticFactoryId%22%3A%22webview_intent%22%2C%22data%22%3A%7B%22layoutId%22%3A%22DefaultLayout%22%2C%22url%22%3A%22https%3A%2F%2Fwww.ca-languedoc.fr%2F%22%7D%7D">Deep Link WebView DefaultLayout
                             </a>
 							</div>
 						</div>
