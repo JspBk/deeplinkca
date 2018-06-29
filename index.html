@@ -20,9 +20,10 @@
 					$("#amountSpan").text(amount)
 					var recipient = $("#recipient").val();
 					$("#recipientSpan").text(recipient)
+					var sender = $("#sender").val();
 					var backgroundColor = $("#backgroundColor").val();
 
-					var data = "{\"introspectionId\":\"transfer_intent\",\"layoutId\":\""+ layoutId +"\",\"amount\":"+ amount +",\"recipient\":\""+ recipient +"\",\"backgroundColor\":\""+ backgroundColor +"\"}"
+					var data = "{\"introspectionId\":\"demotransfer_intent\",\"layoutId\":\""+ layoutId +"\",\"amount\":"+ amount +",\"recipient\":\""+ recipient +"\", \"sender\":\""+ sender +",\"backgroundColor\":\""+ backgroundColor +"\"}"
 					var url = "demoapp://app?data=";
 					console.log(data);
 					url += encodeURIComponent(data);
@@ -64,6 +65,7 @@
 													<option value="navigation">navigation</option>
 												</select>
 											</div>
+											<input type="text" id="sender" name="sender" value="Jérôme"/>
 											<input type="text" id="recipient" name="recipient" value="Jean"/>
 											<input type="text" id="amount" name="amount" value="20"/>
 											<input type="text" id="backgroundColor" name="backgroundColor" value="#ADDED5"/>
